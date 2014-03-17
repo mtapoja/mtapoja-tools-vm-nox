@@ -1,0 +1,13 @@
+Source: mtapoja-tools-vm-nox
+Section: utils
+Priority: extra
+Maintainer: Mika Tapojärvi <mika.tapojarvi@embelin.fi>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.3
+
+Package: mtapoja-tools-vm-nox
+Architecture: any
+Depends: ${misc:Depends}, ${dist:Depends}, htop, iftop, vim-nox, salt-minion
+Description: Metapackage for cool tools for vm - no X
+ This package pulls all the cool tools that can be used from command line.
+ Virtual machines, no X. Some tool scripts included.

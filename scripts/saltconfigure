@@ -1,0 +1,65 @@
+#!/bin/bash
+
+minionconfig="./minion"
+defaultmaster=""
+defaultid=""
+
+#
+# Salt PPA
+
+# Default value to get into while clause
+response=""
+
+while [ "$response" != "y" ] && [ "$response" != "n" ];
+do
+    read -p "install salt ppa: [y]/n: " response
+
+    case $response in
+        y|"")
+            echo -e "installing salt PPA: sudo apt-add-repository ppa:<saltjotain>/salt\n"
+            # Set the variable in case return was pressed for the default value
+            response="y"
+            ;;
+        n)
+            echo -e "salt PPA won't be installed this time.\n"
+            ;;
+    esac
+done
+
+
+#
+# Salt minion configuration
+
+if [ -f $minionconfig ];
+then
+    defaultmaster=`grep master: $minionconfig | sed 's/^master: *//'`
+fi
+
+# Default value to get into while clause
+response=""
+while [ "$response" == "" ];
+do
+    read -p "salt master ip or fqdn: [$defaultmaster]: " response
+    if [ "$response" == "" ];
+    then
+        response=$defaultmaster
+    fi
+    echo "ping test here"
+done
+echo -e "salt master set to: [$response]\n"
+
+
+defaultid=`hostname -f`
+
+# Default value to get into while clause
+response=""
+while [ "$response" == "" ];
+do
+    read -p "salt id for this vm: [$defaultid]: " response
+    if [ "$response" == "" ];
+    then
+        response=$defaultid
+    fi
+done
+echo -e "salt id set to: [$response]\n"
+
