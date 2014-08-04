@@ -1,3 +1,9 @@
+mtapoja-tools-vm-nox (0.1-2) UNRELEASED; urgency=low
+
+  * Script installation temporarily disabled.
+
+ -- Mika Tapojärvi <mika.tapojarvi@embelin.fi>  Mon, 04 Aug 2014 13:52:03 +0300
+
 mtapoja-tools-vm-nox (0.1-1) precise; urgency=low
 
   * Packaging and first dependencies, the first release.
