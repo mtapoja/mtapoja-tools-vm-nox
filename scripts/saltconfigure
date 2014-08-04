@@ -17,6 +17,7 @@ do
     case $response in
         y|"")
             echo -e "installing salt PPA: sudo apt-add-repository ppa:<saltjotain>/salt\n"
+            echo -e "\nInstalling salt-minion has to be done in this script, if it needs to be done.\n"
             # Set the variable in case return was pressed for the default value
             response="y"
             ;;
